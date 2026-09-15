@@ -1,3 +1,4 @@
+#Write a program to check if given number is Armstrong number or not.
 num = int(input("Enter a number: "))
 
 temp = num
@@ -13,6 +14,6 @@ while (temp > 0):
     temp = temp // 10
     sum = sum + (d ** count)
 if (sum == num):
-    print(f"{num} is a amstrong number")
+    print(f"{num} is a Armstrong number")
 else:
-    print(f"{num} is not a amstrong number")
+    print(f"{num} is not a Armstrong number")
