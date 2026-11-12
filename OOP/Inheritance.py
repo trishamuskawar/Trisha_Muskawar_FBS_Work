@@ -1,59 +1,6 @@
-# class Employee:
-#     def __init__(self, id1, name1, sal1):
-#         self.id = id1
-#         self.name = name1
-#         self.salary = sal1
 
-#     def getId(self):
-#         return self.id
-#     def setId(self, newid):
-#         self.id = newid
-
-#     def getName(self):
-#         return self.name                
-#     def setName(self, newname):
-#         self.name = newname
-
-#     def getSalary(self):
-#         return self.salary      
-#     def setSalary(self, newsal):
-#         self.salary = newsal
-
-#     def display(self):
-#         print(f"ID = {self.id}, Name = {self.name}, Salary = {self.salary}")
-
-# class Hr(Employee):
-#     def __init__(self, id, name, sal, com):
-#         super().__init__(id, name, sal)
-#         self.com = com
-#     def getCom(self):
-#         return self.com
-#     def setCom(self, ncom):
-#         self.com = ncom
-#     def display(self):
-#         print(f"Com = {self.com}")
-#         super().display()
-
-# class Devloper(Employee):
-#     def __init__(self, id, name, sal, bonus):
-#         super().__init__(id, name, sal)
-#         self.bonus = bonus
-#     def getBonus(self):
-#         return self.bonus
-#     def setBonus(self, ncom):
-#         self.bonus = ncom
-#     def display(self):
-#         print(f"Bonus = {self.bonus}")
-#         return super().display()
-
-# e1 = Employee(1, "Rahul", 3333)
-# h1 = Hr(7, "Trisha", 8438, 1500)
-# d1 = Devloper(8, "John", 5000, 563)
-# e1.display()
-# h1.display()
-# d1.display()
-
-class Employee:
+from abc import ABC,abstractmethod
+class Employee(ABC):
     def __init__(self, id1, name1, sal1):
         self.id = id1
         self.name = name1
@@ -74,9 +21,13 @@ class Employee:
     def setSal(self, newid):
         self.sal = newid
 
+    @abstractmethod
     def calSal(self):
-        print(f'Total salary : {self.sal}')
+        pass
 
+    # def __str__(self):
+    #     return f"Id={self.id} Name={self.name} Sal={self.sal}"
+    
     def display(self):
         print(f"Id = {self.id}\t Name = {self.name}\t Sal = {self.sal}")
 
@@ -112,9 +63,16 @@ class Developer(Employee):
         print(f'Bonus = {self.bonus}\t')
         return super().display()
 
-e1 = Employee(1, 'Trisha', 200000)
+# e1 = Employee(1, 'Trisha', 200000)
 h1 = Hr(2, 'Utpal', 150000, 2000)
 d1 = Developer(3, 'Shivansh', 200000, 3000)
-e1.calSal()
+# e1.calSal()
 h1.calSal()
 d1.calSal()
+
+li=[]
+# li.append(e1)
+li.append(h1)
+li.append(d1)
+for i in li:
+    i.display()
